@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+      <nav>
+        <div class="header-logo">
+          <% if user_signed_in? %>
+            <%= link_to("PETS APP", "/users/#{current_user.id}") %>
+          <% else %>
+            <%= link_to("PETS APP", "/") %>
+          <% end %>
+        </div>
+        <ul class="header-menus">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to("投稿一覧", "/posts/index") %>
+            </li>
+            <li>
+              <%= link_to("新規投稿", "/posts/new") %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to("PETS APPとは", "/about") %>
+            </li>
+            <li>
+              <%= link_to 'サインアップ', new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+    <%= yield %>
+  </body>
+</html>

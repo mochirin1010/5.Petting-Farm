@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @user.username %></h1>
+  <p><%= @user.email %></p>
+  <% if @user.id == current_user.id %>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% end %>
+
+  <% @user.posts.each do |post| %>
+    <div class="posts-index-item">
+      <div class="post-user-name">
+         <%= link_to(post.user.username, "/users/#{post.user.id}") %>
+      </div>
+      <%= link_to(post.content, "/posts/#{post.id}") %>
+    </div>
+   <% end %>
+</div>
