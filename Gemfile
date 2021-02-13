@@ -63,6 +63,8 @@ gem 'omniauth-twitter'
 
 gem 'dotenv-rails'
 
+gem 'carrierwave', '~> 2.0'
+
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
