@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
-  
+  before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -46,17 +46,16 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
-    if @post.user_id != current_user.id
-      redirect_to("/posts/index")
-    end
+    return unless @post.user_id != current_user.id
+
+    redirect_to("/posts/index")
   end
 
-
   private
- def post_params
-  params.permit(:content)
- end
+
+  def post_params
+    params.permit(:content)
+  end
 end

@@ -1,0 +1,62 @@
+inherit_from: .rubocop_todo.yml
+
+
+AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 60
+  Exclude:
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/MethodLength:
+  Max: 60
+
+Metrics/PerceivedComplexity:
+  Max: 15 
+
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - bin/**/*
+    - vendor/**/*
+    - log/**/*
+    - public/**/*
+    - tmp/**/*
+    - assets/**/*
+    - spec/**/*
+    - config/**/*
+    - node_modules/**/*
