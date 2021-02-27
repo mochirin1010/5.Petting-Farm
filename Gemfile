@@ -61,13 +61,26 @@ gem 'devise', git: "https://github.com/heartcombo/devise.git", branch: "ca-omnia
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+#	Japanese localization
+gem 'rails-i18n', '~> 6.0'
+
+gem 'devise-i18n'
+
 gem 'dotenv-rails'
 
 gem 'carrierwave', '~> 2.0'
+
+gem 'mini_magick'
+
+gem 'kaminari'
 
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
+
+  gem 'brakeman'
 end
+
+gem "jquery-rails"
