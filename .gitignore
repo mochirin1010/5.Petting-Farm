@@ -48,3 +48,4 @@ yarn-debug.log*
 /public/packs
 /public/packs-test
 /public/assets
+/public/img

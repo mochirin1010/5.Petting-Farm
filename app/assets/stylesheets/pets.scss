@@ -1,0 +1,51 @@
+// index==========================
+.pet-box {
+  display: flex;
+  margin: 10px 0;
+}
+
+.show-pet-img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px #c1ced7;
+  object-fit: cover;
+  background-color: white;
+}
+
+.pet-name {
+  position: relative;
+  display: inline-block;
+  margin-left: 25px;
+  padding: 20px 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+  display: table;
+  width: 100%;
+}
+
+.pet-name:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e3e8ec;
+}
+
+.pet-menus {
+  margin: 10px 0 30px 0;
+}
+
+.pet-name-left {
+  font-weight: bolder;
+}
+
+.pet-name-right {
+  font-size: 0.9em;
+}
+
+// Place all the styles related to the pets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/

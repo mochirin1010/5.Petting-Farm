@@ -1,0 +1,20 @@
+<div class="container">
+  <% @pets.each do |pet| %>
+    <div class="pet-box">
+      <div class="show-pet-img">
+        <%= link_to pet_path(pet) do %>
+          <% if pet.pet_img? %>
+            <%= image_tag pet.pet_img.url %>
+          <% else %>
+            <img src="/img/dog.png">
+          <% end %>
+        <% end %>
+      </div>
+      <div class="pet-name">
+        <div class="pet-name-left"><%= link_to pet.name, pet_path(pet) %></div>
+        <div class="pet-name-right"><%= pet.gender %> / <%= pet.pet_type %></div>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @pets %>
+</div>

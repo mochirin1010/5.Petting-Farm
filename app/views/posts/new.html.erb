@@ -1,7 +1,7 @@
 <div class="container">
   <div class="post-new">
-    <h1>投稿する</h1>
-    <%= form_with url: "/posts/create" do |f| %>
+    <h1>投稿</h1>
+    <%= form_with url: posts_path do |f| %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -10,10 +10,22 @@
             </div>
           <% end %>
           
-           <%= f.label "写真の投稿" %><br>
-           <%= f.file_field :image %><br>
+           <%= f.label "写真の選択 " %><span>必須</span><br>
+           <%= f.file_field :image, id: :file_image %><br>
+
+           <% if @post.image.present? %>
+             <%= image_tag @post.image, id: :img_prev %>
+           <% else %>
+             <%= image_tag "/img/dog_post.png", id: :img_prev %>
+           <% end %><br>
+
+           <%= f.label "写真の説明 " %><span>必須</span><br>
            <%= f.text_area :content, value: @post.content %><br>
-           <%= f.submit "投稿" %>
+           <%= f.label "投稿するペット" %><br>
+            <% @pets.each do |pet| %>
+              <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
+            <% end %>
+           <%= f.submit "投稿する" %>
         </div>
       </div>
     <% end %>

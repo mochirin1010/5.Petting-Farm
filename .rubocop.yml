@@ -34,6 +34,9 @@ Style/RedundantReturn:
 Style/SymbolArray:
   Enabled: false
 
+Layout/CommentIndentation:
+  Enabled: false
+
 Metrics/BlockLength:
   Max: 60
   Exclude:
@@ -46,6 +49,9 @@ Metrics/MethodLength:
 
 Metrics/PerceivedComplexity:
   Max: 15 
+
+Metrics/AbcSize:
+  Max: 27
 
 
 AllCops:
