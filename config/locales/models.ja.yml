@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      post: 
+        content: 文章
+        image: 画像
+      user:
+        username: ユーザーネーム
+        user_img: ユーザー画像
+        introduction: 自己紹介
+      pet:
+        name: 名前
+        age: 年齢
+        pet_type: 種類
+        gender: 性別
+        introduction: ペット紹介
+        pet_img: ペット画像
