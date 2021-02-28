@@ -9,6 +9,7 @@ document.addEventListener("turbolinks:load", function() {$(function() {
   });
 })
 
+
 document.addEventListener("turbolinks:load", function() {$(function() {
   function readURL(input) {
       if (input.files && input.files[0]) {
