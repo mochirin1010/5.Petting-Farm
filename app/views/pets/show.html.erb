@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="show-user">
+    <div class="post-user-img show-user-left">
+      <% if @pet.pet_img? %>
+        <%= image_tag @pet.pet_img.url %>
+      <% else %>
+        <img src="/img/dog.png">
+      <% end %>
+    </div>
+    <div class="show-user-right">
+      <h1><%= @pet.name %></h1>
+      <p><%= link_to "owner", user_path(@pet.user_id) %></p>
+    </div>
+  </div>
+
+  <% if @pet.user_id == current_user.id %>
+    <div class="pet-menus">
+      <%= link_to "編集", edit_pet_path(@pet) %>
+      <%= link_to "削除", pet_path(@pet), :method => :delete %>
+    </div>
+  <% end %>
+
+  <ul class="tab">
+    <li class="active">プロフィール</li>
+    <li>記事</li>
+  </ul>
+
+  <div class="tabContent active pet-show">
+    <dl class="profile">
+      <dt>年齢</dt>
+      <dd><%= @pet.age %></dd>
+    </dl>
+    <dl class="profile">
+      <dt>種類</dt>
+      <dd><%= @pet.pet_type %></dd>
+    </dl>
+    <dl class="profile">
+      <dt>性別</dt>
+      <dd><%= @pet.gender %></dd>
+    </dl>
+    <dl class="profile">
+      <dt>ペット紹介</dt>
+      <dd><%= @pet.introduction %></dd>
+    </dl>
+  </div>
+
+  <div class="tabContent">
+    <div class="posts-box">
+      <% @posts.each do |post| %>
+        <div class="posts-index-item">
+          <div class="post-content">
+            <%= link_to post_path(post) do %>
+              <div class="index-post-img"><%= image_tag post.image.url %></div>
+            <% end %>
+            <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+              <%= link_to("/likes/#{post.id}/destroy", {method: "destroy"}) do %>
+                <span class="material-icons">favorite</span>
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+                <span class="material-icons">favorite_border</span>
+              <% end %>
+            <% end %>
+            <p><%= link_to(post.content, post_path(post)) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
