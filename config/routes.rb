@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
 
   devise_for :users
-  # get "users/:id" => "users#show"
   resources :users, only: [:show]
 
   resources :posts
