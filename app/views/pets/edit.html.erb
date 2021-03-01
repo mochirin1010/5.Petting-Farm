@@ -23,10 +23,10 @@
           <%= f.file_field :pet_img, id: :file_image %><br>
           <% if @pet.pet_img.present? %>
             <%= image_tag @pet.pet_img.url, id: :img_prev %>
+            <%= f.hidden_field :pet_img_cache %>
           <% else %>
             <%= image_tag "/img/dog.png", id: :img_prev %>
           <% end %><br>
-          <%= f.hidden_field :pet_img_cache %><br>
           <%= f.submit "保存する" %>
         </div>
       </div>

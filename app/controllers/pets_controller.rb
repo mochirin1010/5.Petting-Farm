@@ -42,9 +42,11 @@ class PetsController < ApplicationController
     @pet.pet_type = params[:pet_type]
     @pet.gender = params[:gender]
     @pet.introduction = params[:introduction]
-    @pet.pet_img = params[:pet_img]
+    if params[:pet_img].present?
+      @pet.pet_img = params[:pet_img]
+    end
     if @pet.save
-      redirect_to user_path(current_user)
+      redirect_to pet_path(@pet)
     else
       render("pets/edit")
     end

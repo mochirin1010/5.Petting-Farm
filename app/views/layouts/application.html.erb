@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>PetApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
@@ -17,23 +18,26 @@
           <% if user_signed_in? %>
             <%= link_to("PETS APP", "/users/#{current_user.id}") %>
           <% else %>
-            <%= link_to("PETS APP", "/") %>
+            <%= link_to "PETS APP", root_path %>
           <% end %>
         </div>
         <ul class="header-menus">
           <% if user_signed_in? %>
             <li>
-              <%= link_to("投稿一覧", "/posts/index") %>
+              <%= link_to"ペット一覧", pets_path %>
             </li>
             <li>
-              <%= link_to("新規投稿", "/posts/new") %>
+              <%= link_to"投稿一覧", posts_path %>
+            </li>
+            <li>
+              <%= link_to "新規投稿", new_post_path %>
             </li>
           <% else %>
             <li>
-              <%= link_to("PETS APPとは", "/about") %>
+              <%= link_to "PETS APPとは", about_path %>
             </li>
             <li>
-              <%= link_to 'サインアップ', new_user_registration_path %>
+              <%= link_to '新規登録', new_user_registration_path %>
             </li>
             <li>
               <%= link_to 'ログイン', new_user_session_path %>

@@ -1,17 +1,120 @@
 <div class="container">
-  <h1><%= @user.username %></h1>
-  <p><%= @user.email %></p>
+  <div class="show-user">
+    <div class="post-user-img show-user-left">
+      <% if @user.user_img? %>
+        <%= image_tag @user.user_img.url %>
+      <% else %>
+        <img src="/img/dog.png">
+      <% end %>
+    </div>
+    <div class="show-user-right">
+      <h1><%= @user.username %></h1>
+      <p><%= @user.introduction %></p>
+    </div>
+  </div>
+  
   <% if @user.id == current_user.id %>
-    <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <div class="show-edit">
+      <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    </div>
+    <div class="show-destroy">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
   <% end %>
 
-  <% @user.posts.each do |post| %>
-    <div class="posts-index-item">
-      <div class="post-user-name">
-         <%= link_to(post.user.username, "/users/#{post.user.id}") %>
+  <ul class="tab">
+    <li class="active">ペット<br><%= @pets.count %></li>
+    <li>投稿一覧<br><%= @posts.count %></li>
+    <% if @user.id == current_user.id %>
+      <li>いいねした投稿<br><%= @likes.count %></li>
+    <% end %>
+  </ul>
+
+  <div class="tabContent active">
+    <% if @user.id == current_user.id %>
+      <%= link_to 'ペットを登録する', new_pet_path %>
+    <% end %>
+    <% @pets.each do |pet| %>
+      <div class="pet-box">
+        <div class="show-pet-img">
+          <%= link_to pet_path(pet) do %>
+            <% if pet.pet_img? %>
+              <%= image_tag pet.pet_img.url %>
+            <% else %>
+              <img src="/img/dog.png">
+            <% end %>
+          <% end %>
+        </div>
+        <div class="pet-name">
+        <div class="pet-name-left"><%= link_to pet.name, pet_path(pet) %></div>
+        <div class="pet-name-right"><%= pet.gender %> / <%= pet.pet_type %></div>
       </div>
-      <%= link_to(post.content, "/posts/#{post.id}") %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tabContent">
+    <div class="posts-box">
+      <% @posts.each do |post| %>
+        <div class="posts-index-item">
+          <div class="post-content">
+            <%= link_to post_path(post) do %>
+              <div class="index-post-img"><%= image_tag post.image.url %></div>
+            <% end %>
+            <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+              <%= link_to("/likes/#{post.id}/destroy", {method: "destroy"}) do %>
+                <span class="material-icons">favorite</span>
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+                <span class="material-icons">favorite_border</span>
+              <% end %>
+            <% end %>
+            <p><%= link_to(post.content, post_path(post)) %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
-   <% end %>
+  </div>
+
+  <% if @user.id == current_user.id %>
+    <div class="tabContent">
+      <div class="posts-box">
+        <% @likes.each do |like| %>
+          <% post = Post.find_by(id: like.post_id) %>
+          <div class="posts-index-item">
+            <div class="user_box">
+              <div class="post-user-img">
+                <%= link_to user_path(post.user) do %>
+                  <% if post.user.user_img? %>
+                    <%= image_tag post.user.user_img.url %>
+                  <% else %>
+                    <img src="/img/dog.png">
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="post-user-name">
+                <%= link_to post.user.username, user_path(post.user) %>
+              </div>
+            </div>
+            <div class="post-content">
+              <%= link_to post_path(post) do %>
+                <div class="index-post-img"><%= image_tag post.image.url %></div>
+              <% end %>
+              <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+                <%= link_to("/likes/#{post.id}/destroy", {method: "destroy"}) do %>
+                  <span class="material-icons">favorite</span>
+                <% end %>
+              <% else %>
+                <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+                  <span class="material-icons">favorite_border</span>
+                <% end %>
+              <% end %>
+              <p><%= link_to(post.content, post_path(post)) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

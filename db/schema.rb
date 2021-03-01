@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_082355) do
+ActiveRecord::Schema.define(version: 2021_03_01_091702) do
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_082355) do
 
   create_table "pets", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
+    t.string "age"
     t.string "pet_type"
     t.string "gender"
     t.text "introduction"
