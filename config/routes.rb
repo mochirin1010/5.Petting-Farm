@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   root "home#top"
   get "/about" => "home#about"
 
-<<<<<<< HEAD
-=======
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -15,6 +13,5 @@ Rails.application.routes.draw do
   
   resources :pets
 
->>>>>>> edit-pet-icon
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
