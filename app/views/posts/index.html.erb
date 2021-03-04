@@ -20,15 +20,12 @@
           <%= link_to post_path(post) do %>
             <div class="index-post-img"><%= image_tag post.image.url %></div>
           <% end %>
-          <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-            <%= link_to("/likes/#{post.id}/destroy", {method: "destroy"}) do %>
-              <span class="material-icons">favorite</span>
-            <% end %>
-          <% else %>
-            <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
-              <span class="material-icons">favorite_border</span>
-            <% end %>
-          <% end %>
+
+          <div id="like-btn-<%= post.id %>" class="like-btn">
+            <%= render partial: 'likes/like', locals: { post: post } %>
+          </div>
+
+
           <p><%= link_to(post.content, post_path(post)) %></p>
         </div>
       </div>

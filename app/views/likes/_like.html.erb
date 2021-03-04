@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% if post.liked_by?(current_user) %>
+    <%= link_to post_add_path(post.id), method: :delete, remote: true do %>
+        <p><span class="material-icons favorite-icons favorite-on">favorite</span><%= post.likes.count %></p>
+    <% end %>
+  <% else %>
+    <%= link_to post_add_path(post.id), method: :post, remote: true do %>
+        <p><span class="material-icons favorite-icons favorite-off">favorite_border</span><%= post.likes.count %></p>
+    <% end %>
+  <% end %>
+<% else %>
+    <p><span>いいね数 </span><%= post.likes.count %></p>
+<% end %>

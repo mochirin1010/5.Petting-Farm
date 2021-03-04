@@ -135,6 +135,24 @@ textarea {
   background-color: white;
 }
 
+// いいね==================================
+.like-btn p {
+  margin: 10px 0;
+}
+
+.favorite-icons {
+  margin-right: 10px;
+  font-size: 32px;
+  vertical-align : middle;
+}
+
+.favorite-on {
+  color: rgb(252, 64, 31);
+}
+
+.favorite-off {
+  color: #aa9e98;
+}
 
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
