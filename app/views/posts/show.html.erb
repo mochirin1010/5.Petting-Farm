@@ -22,16 +22,9 @@
       <%= @post.created_at %>
     </div>
 
-    <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
-      <%= link_to("/likes/#{@post.id}/destroy", {method: "destroy"}) do %>
-        <span class="material-icons">favorite</span>
-      <% end %>
-    <% else %>
-      <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-        <span class="material-icons">favorite_border</span>
-      <% end %>
-    <% end %>
-    <span><%= @likes_count %></span>
+    <div id="like-btn-<%= @post.id %>" class="like-btn">
+      <%= render partial: 'likes/like', locals: { post: @post } %>
+    </div>
 
     <div class="post-show-pet">
       <div class="post-show-pet-img">

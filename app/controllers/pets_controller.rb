@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_action :authenticate_user!, { only: [:new, :create, :edit, :update, :destroy] }
+  
   def index
     @pets = Pet.all.order(created_at: :desc)
     @pets = Pet.page(params[:page]).per(20)

@@ -14,4 +14,8 @@ class Post < ApplicationRecord
   def pet
     return Pet.find_by(id: self.pet_id)
   end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end
