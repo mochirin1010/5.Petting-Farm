@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @posts = Post.page(params[:page]).per(20)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
   def show

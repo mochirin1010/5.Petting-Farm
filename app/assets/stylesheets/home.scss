@@ -135,6 +135,49 @@ textarea {
   background-color: white;
 }
 
+// 検索form====================================
+.pet_search,
+.post_search {
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #5f4e2c;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  height: 2.3em;
+  width: 265px;
+  overflow: hidden;
+}
+
+.pet_search input[type="search"],
+.post_search input[type="search"] {
+  border: none;
+  height: 2.0em;
+  width: 200px;
+  margin: 0;
+}
+
+.pet_search input[type="search"]:focus,
+.post_search input[type="search"]:focus {
+  outline: 0;
+}
+
+
+.pet_search input[type="submit"],
+.post_search input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  background: #5f4e2c;
+  color: #fff;
+  position: absolute;
+  width: 3.5em;
+  height: 3.0em;
+  right:0px;
+  top: -5px;
+  outline : none;
+}
+
+
 // いいね==================================
 .like-btn p {
   margin: 10px 0;

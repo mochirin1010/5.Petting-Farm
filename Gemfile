@@ -74,6 +74,8 @@ gem 'mini_magick'
 
 gem 'kaminari'
 
+gem 'ransack'
+
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
