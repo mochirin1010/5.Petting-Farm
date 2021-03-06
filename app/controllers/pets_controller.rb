@@ -1,9 +1,11 @@
 class PetsController < ApplicationController
   before_action :authenticate_user!, { only: [:new, :create, :edit, :update, :destroy] }
-  
+
   def index
     @pets = Pet.all.order(created_at: :desc)
     @pets = Pet.page(params[:page]).per(20)
+    @q = Pet.ransack(params[:q])
+    @pets = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
   def show
@@ -44,9 +46,7 @@ class PetsController < ApplicationController
     @pet.pet_type = params[:pet_type]
     @pet.gender = params[:gender]
     @pet.introduction = params[:introduction]
-    if params[:pet_img].present?
-      @pet.pet_img = params[:pet_img]
-    end
+    @pet.pet_img = params[:pet_img] if params[:pet_img].present?
     if @pet.save
       redirect_to pet_path(@pet)
     else

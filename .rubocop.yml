@@ -51,7 +51,7 @@ Metrics/PerceivedComplexity:
   Max: 15 
 
 Metrics/AbcSize:
-  Max: 27
+  Max: 30
 
 
 AllCops:

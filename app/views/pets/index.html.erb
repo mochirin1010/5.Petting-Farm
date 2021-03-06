@@ -1,4 +1,9 @@
 <div class="container">
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :name_or_pet_type_cont, placeholder: "ペット検索" %>
+    <%= f.submit "検索" %>
+  <% end %>
+
   <% @pets.each do |pet| %>
     <div class="pet-box">
       <div class="show-pet-img">
@@ -16,5 +21,5 @@
       </div>
     </div>
   <% end %>
-  <%= paginate @pets %>
+ <%= paginate @pets %>
 </div>
