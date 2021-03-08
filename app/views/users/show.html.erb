@@ -1,4 +1,7 @@
 <div class="container">
+  <% breadcrumb :user_show %>
+  <%= render "layouts/breadcrumbs" %>
+
   <div class="show-user">
     <div class="post-user-img show-user-left">
       <% if @user.user_img? %>

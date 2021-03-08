@@ -1,4 +1,7 @@
 <div class="container">
+  <% breadcrumb :posts_index %>
+  <%= render "layouts/breadcrumbs" %>
+
   <%= search_form_for @q do |f| %>
     <%= f.search_field :content_cont, placeholder: "投稿検索" %>
     <%= f.submit "検索" %>

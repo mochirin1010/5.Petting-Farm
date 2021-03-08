@@ -1,4 +1,11 @@
 <div class="container">
+  <% if @pet.user_id == current_user.id %>
+    <% breadcrumb :mypet_parent_category %>
+  <% else %>
+    <% breadcrumb :pet_parent_category %>
+  <% end %>
+  <%= render "layouts/breadcrumbs" %>
+
   <div class="show-user">
     <div class="post-user-img show-user-left">
       <% if @pet.pet_img? %>
