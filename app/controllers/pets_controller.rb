@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :authenticate_user!, { only: [:new, :create, :edit, :update, :destroy] }
+  before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
 
   def index
     @pets = Pet.all.order(created_at: :desc)
@@ -58,6 +59,13 @@ class PetsController < ApplicationController
     @pet = Pet.find_by(id: params[:id])
     @pet.destroy
     redirect_to user_path(current_user)
+  end
+
+  def ensure_correct_user
+    @pet = Pet.find_by(id: params[:id])
+    if @pet.user_id != current_user.id
+      redirect_to pets_path
+    end
   end
 
   private
