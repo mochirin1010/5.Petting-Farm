@@ -1,4 +1,7 @@
 <div class="container">
+  <% breadcrumb :pets_index %>
+  <%= render "layouts/breadcrumbs" %>
+
   <%= search_form_for @q do |f| %>
     <%= f.search_field :name_or_pet_type_cont, placeholder: "ペット検索" %>
     <%= f.submit "検索" %>

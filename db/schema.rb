@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_091702) do
+ActiveRecord::Schema.define(version: 2021_03_06_133745) do
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_091702) do
     t.integer "user_id"
     t.string "image"
     t.integer "pet_id"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_posts_on_ancestry"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

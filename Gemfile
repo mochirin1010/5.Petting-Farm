@@ -76,6 +76,10 @@ gem 'kaminari'
 
 gem 'ransack'
 
+gem 'ancestry'
+
+gem 'gretel'
+
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false

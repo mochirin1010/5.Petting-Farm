@@ -1,4 +1,13 @@
 <div class="container">
+  
+
+  <% if @post.user_id == current_user.id %>
+    <% breadcrumb :mypost_parent_category %>
+  <% elsif @post.root? %>
+    <% breadcrumb :post_parent_category %>
+  <% end %>
+  <%= render "layouts/breadcrumbs" %>
+
   <div class="posts-show-item">
     <div class="user_box">
       <div class="post-user-img">
