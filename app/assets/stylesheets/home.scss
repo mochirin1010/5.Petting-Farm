@@ -37,9 +37,30 @@ body {
   margin: 0 auto;
 }
 
+.device-container {
+  width: 700px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     width: 95%;
+  }
+  .device-container {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .device-container {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .device-container {
+    width: 300px;
   }
 }
 
@@ -47,9 +68,11 @@ body {
 header {
   height: 64px;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   position: fixed;
+  background-color: #fff;
+  box-shadow: 0 0 4px #c1ced7;
 }
 
 .header-logo {
@@ -73,6 +96,63 @@ header {
   line-height: 64px;
   font-size: 13px;
   padding-left: 15px;
+}
+
+
+.menu-btn,
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .header-menus {
+    display: none;
+  }
+
+  .menu-btn{
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(241, 238, 238);
+  }
+  
+  .menu li {
+    width: 100%;
+    height: auto;
+    padding: 3px;
+    font-size: 0.9em;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .menu {
+    transform: translateY(-100vw);
+    transition: all 0.4s linear;
+  }
+
+  .menu.is-active{
+    transform: translateY(0);
+  }
 }
 
 // error-message================================
@@ -108,9 +188,25 @@ input {
   padding: 5px;
 }
 
+.submit-btn {
+  background-color: #aa9e98;
+  color: #fff;
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.submit-btn:hover{
+  background-color: #fff;
+  color: #5f4e2c;
+}
+
 textarea {
-  width: 70%;
-  height: 80px;
+  width: 90%;
+  height: 100px;
 }
 
 .form-body span {
@@ -201,6 +297,58 @@ textarea {
 
 .favorite-off {
   color: #aa9e98;
+}
+
+// paginate=========================
+.paginate {
+  text-align: center;
+  margin: 10px 0;
+}
+
+// home/top===========================
+.home-container h2 {
+  text-align: center;
+  margin: 50px 0 10px 0;
+}
+
+.btn-box {
+  width: 200px;
+  margin: 30px auto;
+}
+
+.btn01 {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 30px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #5f4e2c;
+  line-height: 1.2em;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+.btn01:hover {
+  cursor: pointer;
+}
+.btn01::after {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #5f4e2c;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.btn01:hover::after {
+  bottom: -4px;
+  opacity: 1;
+  visibility: visible;
 }
 
 // Place all the styles related to the home controller here.

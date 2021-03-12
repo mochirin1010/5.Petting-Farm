@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :user_img, UserimgUploader
-  validates :introduction, { length: { maximum: 150 } }
+  validates :introduction, { length: { maximum: 100 } }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

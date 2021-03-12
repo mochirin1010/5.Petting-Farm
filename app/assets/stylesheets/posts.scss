@@ -37,17 +37,63 @@
   width: 280px;
   height: 280px;
   object-fit: cover;
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 685px) {
+  .posts-box {
+    width: 652px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+  .posts-box {
+    width: 978px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 686px) {
   .posts-box {
     justify-content: center;
   }
+  .posts-index-item  {
+    width: 75%;
+    height: 550px;
+    padding: 23px;
+    margin: 0 0 10px 0;
+  }
+  .posts-index-item p {
+    padding: 0 30px;
+  }
+  .index-post-img img {
+    display: block;
+    margin: 10px auto;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .posts-index-item  {
+    width: 100%;
+    height: 510px;
+    padding: 10px;
+  }
+  .posts-index-item p {
+    padding: 0 20px;
+  }
 }
 
 // show==============================
+.posts-show-item {
+  width: 800px;
+  margin: 0 auto;
+}
 .post-show-pet{
   display: flex;
+  margin: 3px 30px;
 }
 
 .post-show-pet p {
@@ -65,10 +111,67 @@
   background-color: white;
 }
 
-.show-post-img img {
+.show-post-box {
+  display: flex;
+  margin: 20px 0;
+}
+
+.show-post-left {
+  
+}
+
+.show-post-left img {
   width: 330px;
   height: 330px;
   object-fit: cover;
+  display: block;
+}
+
+.show-post-right {
+  margin: 20px 0 0 40px;
+}
+
+.show-like-box {
+  display: flex;
+}
+
+.post-menus {
+  margin: 15px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .posts-show-item {
+    width: 350px;
+  }
+  .show-post-box {
+    flex-direction: column;
+  }
+  .show-post-right {
+    margin: 0;
+  }
+  .show-post-left img {
+    margin: 0 auto;
+  }
+}
+
+// new=======================
+.post-new {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.post-new textarea {
+  width: 80%;
+}
+
+@media screen and (max-width: 750px) {
+  .post-new {
+    width: 300px;
+  }
+
+  .post-new textarea {
+    width: 95%;
+  }
 }
 
 // Place all the styles related to the posts controller here.

@@ -24,3 +24,21 @@ document.addEventListener("turbolinks:load", function() {$(function() {
   });
   });
 })
+
+document.addEventListener("turbolinks:load", function() {$(function() {
+  $(function(){
+    $('.menu-btn').click(function() {
+      $('.menu').toggleClass('is-active');
+    });
+  }());
+  });
+})
+
+document.addEventListener("turbolinks:load", function() {$(function() {
+  $(function(){
+    $('.settings-btn').click(function() {
+      $('.show-settings').toggleClass('show-active');
+    });
+  }());
+  });
+})

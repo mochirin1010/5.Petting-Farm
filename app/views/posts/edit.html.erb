@@ -16,7 +16,7 @@
             <% @pets.each do |pet| %>
               <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
           <% end %>
-          <%= f.submit "保存" %>
+          <%= f.submit "保存", class: "submit-btn" %>
         </div>
       </div>
     <% end %>

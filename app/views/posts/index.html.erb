@@ -28,16 +28,15 @@
           <%= link_to post_path(post) do %>
             <div class="index-post-img"><%= image_tag post.image.url %></div>
           <% end %>
-
           <div id="like-btn-<%= post.id %>" class="like-btn">
             <%= render partial: 'likes/like', locals: { post: post } %>
           </div>
-
-
           <p><%= link_to(post.content, post_path(post)) %></p>
         </div>
       </div>
     <% end %>
   </div>
-  <%= paginate @posts %>
+  <div class="paginate">
+    <%= paginate @posts %>
+  </div>
 </div>

@@ -17,7 +17,7 @@
           <%= f.text_field :pet_type, value: @pet.pet_type %><br>
           <%= f.label "性別" %><br>
           <%= f.text_field :gender, value: @pet.gender %><br>
-          <%= f.label "ペットの紹介" %><br>
+          <%= f.label "ペットの紹介（150字まで）" %><br>
           <%= f.text_area :introduction, value: @pet.introduction %><br>
           <%= f.label "ペットの写真" %><br>
           <%= f.file_field :pet_img, id: :file_image %><br>
@@ -27,9 +27,11 @@
           <% else %>
             <%= image_tag "/img/dog.png", id: :img_prev %>
           <% end %><br>
-          <%= f.submit "保存する" %>
+          <%= f.submit "保存する", class: "submit-btn" %>
         </div>
       </div>
     <% end %>
-    <%= link_to "戻る", pet_path(@pet) %>
+    <div class="btn-box">
+      <%= link_to "戻る", pet_path(@pet), class: "btn01" %>
+    </div>
 </div>

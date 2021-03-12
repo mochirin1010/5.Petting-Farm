@@ -1,28 +1,76 @@
 // show==============================
 .show-user {
   display: flex;
+  margin: 0 20px;
 }
 
 .show-user-left img {
   width: 200px;
   height: 200px;
+  margin: 10px;
 }
 
 .show-user-right {
-  margin-left: 25px;
+  margin-left: 40px;
 }
 
-.show-edit,
-.show-destroy {
-  margin: 15px 0;
+.settings-btn {
+  cursor: pointer;
+  user-select: none;
+  margin: 20px 50px;
+  width: 150px;
+}
+
+.settings-icon {
+  margin-right: 8px;
+  vertical-align : middle;
+}
+
+.show-settings {
+  display: none;
+  margin: 10px 0px 30px 55px;
+}
+
+.show-settings li {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9em;
+  width: 150px;
+  padding: 15px;
+  margin: 5px 0;
+  border: 1px solid #aa9e98;
+  background-color: #f0eae7;
+  border-radius: 10px;
+}
+
+.show-settings a {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.show-settings li:hover {
+  opacity: 0.8;
+}
+
+.show-active {
+  display: block;
+}
+
+.my-post-box img {
+  margin-top: 35px;
 }
 
 ul.tab li {
   float: left;
-  margin-right: 10px;
+  margin: 0 10px 10px 0;
   padding: 10px;
   background-color: #f0eae7;
   cursor: pointer;
+  user-select: none;
 }
 ul.tab li:hover {
   opacity: 0.7;
@@ -33,11 +81,48 @@ ul.tab li.active {
 }
 div.tabContent {
   clear: both;
-  padding: 20px;
   display: none;
 }
 div.active {
   display: block;
+}
+
+@media screen and (max-width: 650px) {
+  div.tabContent {
+    padding: 5px;
+  }
+  .show-user {
+    flex-flow: column;
+    text-align: center;
+  }
+  .show-user h1 {
+    font-size: 1.6em;
+  }
+  .show-user-left img {
+    width: 190px;
+    height: 190px;
+  }
+  .show-user-right {
+    margin: 0;
+  }
+  .my-post-box img {
+    margin-top: 20px;
+  }
+  .settings-btn {
+    margin: 20px auto;
+    font-size: 0.8em;
+  }
+  .show-settings {
+    width: 160px;
+    margin: 10px auto;
+  }
+  .show-settings li {
+    text-align: center;
+    font-size: 0.8em;
+  }
+  .show-settings a {
+    left: 4px;
+  }
 }
 
 

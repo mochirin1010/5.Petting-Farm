@@ -12,17 +12,47 @@
   </head>
 
   <body>
-  <header>
+    <header>
       <nav>
         <div class="header-logo">
           <% if user_signed_in? %>
-            <%= link_to("PETS APP", "/users/#{current_user.id}") %>
+            <%= link_to "PETS APP", user_path(current_user) %>
           <% else %>
             <%= link_to "PETS APP", root_path %>
           <% end %>
         </div>
         <ul class="header-menus">
           <% if user_signed_in? %>
+            <li>
+              <%= link_to"ペット一覧", pets_path %>
+            </li>
+            <li>
+              <%= link_to"投稿一覧", posts_path %>
+            </li>
+            <li>
+              <%= link_to "新規投稿", new_post_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "PETS APPとは", about_path %>
+            </li>
+            <li>
+              <%= link_to '新規登録', new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="menu-btn">
+          <span class="material-icons fa fa-bars" aria-hidden="true">menu</span>
+        </div>
+        <ul class="menu">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to"Myページ", user_path(current_user) %>
+            </li>
             <li>
               <%= link_to"ペット一覧", pets_path %>
             </li>

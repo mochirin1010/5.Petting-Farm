@@ -46,6 +46,82 @@
   font-size: 0.9em;
 }
 
+@media screen and (max-width: 500px) {
+  .show-pet-img img {
+    width: 65px;
+    height: 65px;
+  }
+  .pet-name {
+    padding: 10px 20px;
+  }
+  .pet-name-right {
+    font-size: 0.8em;
+  }
+}
+
+// show===============================
+.show-user-right p {
+  margin-bottom: 5px;
+}
+
+.show-pet {
+  margin-left: 10px;
+}
+
+.pet-show {
+  width: 800px;
+  height: auto;
+  padding: 20px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.pet-show dl {
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.pet-show dl:last-child {
+  border-bottom: none;
+}
+
+.pet-show dt {
+  width: 100px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 750px) {
+  .pet-show dt {
+  clear: left;
+  float: left;
+  border-right: 1px solid #ccc;
+  margin: 0;
+  }
+  .pet-show dd {
+    margin-left: 120px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .show-pet {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .show-user-right p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .pet-show {
+    width: 100%;
+  }
+}
+
 // Place all the styles related to the pets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
