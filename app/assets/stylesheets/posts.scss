@@ -116,10 +116,6 @@
   margin: 20px 0;
 }
 
-.show-post-left {
-  
-}
-
 .show-post-left img {
   width: 330px;
   height: 330px;
@@ -137,6 +133,15 @@
 
 .post-menus {
   margin: 15px 0;
+}
+
+.post-time {
+  font-size: 0.7em;
+  margin-top: 15px;
+}
+
+.post-time span {
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 700px) {
