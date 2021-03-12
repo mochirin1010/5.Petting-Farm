@@ -1,6 +1,4 @@
 <div class="container">
-  
-
   <% if @post.user_id == current_user.id %>
     <% breadcrumb :mypost_parent_category %>
   <% elsif @post.root? %>
@@ -24,28 +22,30 @@
       </div>
     </div>
 
-    <div class="show-post-img"><%= image_tag @post.image.url %></div>
-    <p><%= @post.content %></p>
-
-    <div class="post-time">
-      <%= @post.created_at %>
-    </div>
-
-    <div id="like-btn-<%= @post.id %>" class="like-btn">
-      <%= render partial: 'likes/like', locals: { post: @post } %>
-    </div>
-
-    <div class="post-show-pet">
-      <div class="post-show-pet-img">
-        <%= link_to pet_path(@pet) do %>
-          <% if @pet.pet_img? %>
-            <%= image_tag @pet.pet_img.url %>
-          <% else %>
-            <img src="/img/dog.png">
-          <% end %>
-        <% end %>
+    <div class="show-post-box">
+      <div class="show-post-left"><%= image_tag @post.image.url %></div>
+      <div class="show-post-right">
+        <p><%= @post.content %></p>
+        <p><%= @post.created_at %></p>
       </div>
-      <p><%= link_to @pet.name, pet_path(@pet) %></p>
+    </div>
+
+    <div class="show-like-box">
+      <div id="like-btn-<%= @post.id %>" class="like-btn">
+        <%= render partial: 'likes/like', locals: { post: @post } %>
+      </div>
+      <div class="post-show-pet">
+        <div class="post-show-pet-img">
+          <%= link_to pet_path(@pet) do %>
+            <% if @pet.pet_img? %>
+              <%= image_tag @pet.pet_img.url %>
+            <% else %>
+              <img src="/img/dog.png">
+            <% end %>
+          <% end %>
+        </div>
+        <p><%= link_to @pet.name, pet_path(@pet) %></p>
+      </div>
     </div>
 
     <% if @post.user_id == current_user.id %>

@@ -12,6 +12,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find_by(id: params[:id])
     @posts = Post.where(pet_id: @pet.id)
+    @user = User.find_by(id: @pet.user_id)
   end
 
   def new

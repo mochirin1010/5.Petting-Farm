@@ -16,14 +16,31 @@
     </div>
     <div class="show-user-right">
       <h1><%= @pet.name %></h1>
-      <p><%= link_to "owner", user_path(@pet.user_id) %></p>
+      <p>オーナー</p>
+      <div class="user_box show-pet">
+        <div class="post-user-img">
+          <%= link_to user_path(@user) do %>
+            <% if @user.user_img? %>
+              <%= image_tag @user.user_img.url %>
+            <% else %>
+              <img src="/img/dog.png">
+            <% end %>
+          <% end %>
+        </div>
+        <div class="post-user-name">
+          <%= link_to @user.username, user_path(@user) %>
+        </div>
+      </div>
     </div>
   </div>
 
   <% if @pet.user_id == current_user.id %>
-    <div class="pet-menus">
-      <%= link_to "編集", edit_pet_path(@pet) %>
-      <%= link_to "削除", pet_path(@pet), :method => :delete %>
+    <div class="settings-btn"><span class="material-icons settings-icon">settings</span><span>Myペット設定</span></div>
+    <div class="show-settings pet-menus">
+      <ul>
+        <li><%= link_to "編集", edit_pet_path(@pet) %></li>
+        <li><%= link_to "削除", pet_path(@pet), :method => :delete %></li>
+      </ul>
     </div>
   <% end %>
 
@@ -32,29 +49,31 @@
     <li>記事</li>
   </ul>
 
-  <div class="tabContent active pet-show">
-    <dl class="profile">
-      <dt>年齢</dt>
-      <dd><%= @pet.age %></dd>
-    </dl>
-    <dl class="profile">
-      <dt>種類</dt>
-      <dd><%= @pet.pet_type %></dd>
-    </dl>
-    <dl class="profile">
-      <dt>性別</dt>
-      <dd><%= @pet.gender %></dd>
-    </dl>
-    <dl class="profile">
-      <dt>ペット紹介</dt>
-      <dd><%= @pet.introduction %></dd>
-    </dl>
+  <div class="tabContent active">
+    <div class="pet-show">
+      <dl class="profile">
+        <dt>年齢</dt>
+        <dd><%= @pet.age %></dd>
+      </dl>
+      <dl class="profile">
+        <dt>種類</dt>
+        <dd><%= @pet.pet_type %></dd>
+      </dl>
+      <dl class="profile">
+        <dt>性別</dt>
+        <dd><%= @pet.gender %></dd>
+      </dl>
+      <dl class="profile">
+        <dt>ペット紹介</dt>
+        <dd><%= @pet.introduction %></dd>
+      </dl>
+    </div>
   </div>
 
   <div class="tabContent">
     <div class="posts-box">
       <% @posts.each do |post| %>
-        <div class="posts-index-item">
+        <div class="posts-index-item my-post-box">
           <div class="post-content">
             <%= link_to post_path(post) do %>
               <div class="index-post-img"><%= image_tag post.image.url %></div>
