@@ -2,6 +2,21 @@
   <% breadcrumb :home_about %>
   <%= render "layouts/breadcrumbs" %>
 
-  <h1>説明ページです。</h1>
-  <p><%= link_to "みんなの投稿を見てみる", posts_path, class: "btn01" %></p>
+  <h1>PETSAPPとは</h1>
+  <p>ペットの写真を自由に投稿するサイトです。<br>新規登録をすると自分のペットの登録ができるようになるので、登録したペットを紹介したり、写真を投稿することができます。</p>
+  <div class="about-box">
+    <div class="user-home-box">
+      <h2>ユーザーMyページ</h2>
+      <img src="img/user_home.png" class="about-img">
+      <p>Myページには自分の投稿一覧が確認できます。<br>また、いいねした投稿一覧も見ることができます。</p>
+    </div>
+    <div class="pet-home-box">
+      <h2>ペット紹介ページ</h2>
+      <img src="img/pet_home.png" class="about-img">
+      <p>自分のペットの紹介をしたり、写真投稿時にタグ付けをすればペットの写真一覧に追加されます。</p>
+    </div>
+  </div>
+  <div class="about-btn-box">
+    <%= link_to "みんなの投稿を見てみる", posts_path, class: "btn01" %>
+  </div>
 </div>
