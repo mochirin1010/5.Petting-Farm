@@ -64,9 +64,9 @@ class PetsController < ApplicationController
 
   def ensure_correct_user
     @pet = Pet.find_by(id: params[:id])
-    if @pet.user_id != current_user.id
-      redirect_to pets_path
-    end
+    return unless @pet.user_id != current_user.id
+
+    redirect_to pets_path
   end
 
   private

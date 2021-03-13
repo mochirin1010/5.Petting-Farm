@@ -165,6 +165,10 @@
   margin: 0 auto;
 }
 
+.post-new h1 {
+  font-size: 1.5em;
+}
+
 .post-new textarea {
   width: 80%;
 }
@@ -173,9 +177,24 @@
   .post-new {
     width: 300px;
   }
-
   .post-new textarea {
     width: 95%;
+  }
+}
+
+// edit==========================
+.edit-container {
+  width: 550px;
+  margin: 0 auto;
+}
+
+.edit-container h1 {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 600px) {
+  .edit-container {
+    width: 85%;
   }
 }
 

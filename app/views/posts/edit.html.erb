@@ -1,5 +1,5 @@
-<div class="container">
-  <h1>編集する</h1>
+<div class="container edit-container">
+  <h1>投稿を編集する</h1>
     <%= form_with url: post_path(@post), :method => :patch do |f| %>
       <div class="form">
         <div class="form-body">
@@ -11,7 +11,7 @@
 
           <%= image_tag @post.image_url %>
           <%= f.hidden_field :image_cache %><br>
-          <%= f.text_area :content, value: @post.content %><br>
+          <%= f.text_area :content, value: @post.content, class: "introduction-text" %><br>
           <%= f.label "投稿するペット" %><br>
             <% @pets.each do |pet| %>
               <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
