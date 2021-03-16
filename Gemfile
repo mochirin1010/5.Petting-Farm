@@ -82,8 +82,6 @@ gem 'gretel'
 
 gem 'rails_admin', '~> 2.0.0.beta'
 
-gem 'dotenv-rails'
-
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false

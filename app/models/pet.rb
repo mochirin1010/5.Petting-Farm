@@ -3,4 +3,5 @@ class Pet < ApplicationRecord
   validates :name, { presence: true }
   validates :introduction, { length: { maximum: 150 } }
   belongs_to :user
+  has_many :posts, dependent: :destroy
 end

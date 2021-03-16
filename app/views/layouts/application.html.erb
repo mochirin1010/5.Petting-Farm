@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PetApp</title>
+    <title>Petting Farm</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,9 +16,9 @@
       <nav>
         <div class="header-logo">
           <% if user_signed_in? %>
-            <%= link_to "PETS APP", user_path(current_user) %>
+            <%= link_to "Petting Farm", user_path(current_user) %>
           <% else %>
-            <%= link_to "PETS APP", root_path %>
+            <%= link_to "Petting Farm", root_path %>
           <% end %>
         </div>
         <ul class="header-menus">
@@ -34,7 +34,7 @@
             </li>
           <% else %>
             <li>
-              <%= link_to "PETS APPとは", about_path %>
+              <%= link_to "Petting Farmとは", about_path %>
             </li>
             <li>
               <%= link_to '新規登録', new_user_registration_path %>
@@ -64,7 +64,7 @@
             </li>
           <% else %>
             <li>
-              <%= link_to "PETS APPとは", about_path %>
+              <%= link_to "Petting Farmとは", about_path %>
             </li>
             <li>
               <%= link_to '新規登録', new_user_registration_path %>
