@@ -50,3 +50,6 @@ yarn-debug.log*
 /public/packs-test
 /public/assets
 /public/img
+
+# Ignore sitemap file
+public/sitemap.xml.gz
