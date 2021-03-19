@@ -86,6 +86,8 @@ gem 'sitemap_generator'
 
 gem 'whenever', require: false
 
+gem 'meta-tags'
+
 group 'development' do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
