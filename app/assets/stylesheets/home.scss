@@ -319,7 +319,7 @@ textarea {
 // home/top===========================
 .home-container h2 {
   text-align: center;
-  margin: 50px 0 10px 0;
+  margin: 80px 0 10px 0;
 }
 
 .btn-box {
@@ -360,6 +360,17 @@ textarea {
   bottom: -4px;
   opacity: 1;
   visibility: visible;
+}
+
+.top-post h3 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.ranking-icon {
+  vertical-align : middle;
+  background-color: rgb(255, 255, 57);
+  border-radius: 50%;
 }
 
 // home/about=============================
