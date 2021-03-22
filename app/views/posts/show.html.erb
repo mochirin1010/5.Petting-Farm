@@ -57,7 +57,7 @@
       <div class="post-show-menu">
         <ul>
           <li><%= link_to "編集", edit_post_path(@post) %></li>
-          <li><%= link_to "削除", post_path(@post), :method => :delete %></li>
+          <li><%= link_to "削除", post_path(@post), :method => :delete, data: { confirm: '削除してもよろしいですか?' } %></li>
         </ul>
       </div>
     <% end %>

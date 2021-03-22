@@ -39,7 +39,7 @@
     <div class="show-settings pet-menus">
       <ul>
         <li><%= link_to "編集", edit_pet_path(@pet) %></li>
-        <li><%= link_to "削除", pet_path(@pet), :method => :delete %></li>
+        <li><%= link_to "削除", pet_path(@pet), :method => :delete, data: { confirm: '削除してもよろしいですか?' } %></li>
       </ul>
     </div>
   <% end %>

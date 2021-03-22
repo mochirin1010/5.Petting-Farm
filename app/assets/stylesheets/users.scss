@@ -14,19 +14,21 @@
   margin-left: 40px;
 }
 
-.settings-btn {
+.settings-btn,
+.pets-btn {
   cursor: pointer;
   user-select: none;
   margin: 20px 50px;
   width: 150px;
 }
 
-.settings-icon {
+.settings-icon,
+.pets-icon {
   margin-right: 8px;
   vertical-align : middle;
 }
 
-.show-settings {
+.show-settings{
   display: none;
   margin: 10px 0px 30px 55px;
 }
@@ -52,7 +54,11 @@
   z-index: 2;
 }
 
-.show-settings li:hover {
+.show-pets li {
+  cursor: pointer;
+}
+
+.show-settings li:hover{
   opacity: 0.8;
 }
 

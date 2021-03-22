@@ -1,0 +1,30 @@
+<div class="container edit-container">
+  <h1>編集する</h1>
+  <%= form_with model: [@user, @management], local: true do |f| %>
+    <div class="form">
+      <div class="form-body">
+        <% @management.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= f.label "投稿するペット" %><br>
+        <% @pets.each do |pet| %>
+          <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
+        <% end %>
+
+        <%= f.label "title" %><br>
+        <%= f.text_field :title, value: @management.title %><br>
+
+        <%= f.label "start_time" %><br>
+        <%= f.datetime_select :start_time %><br>
+
+        <%= f.label "content" %><br>
+        <%= f.text_area :content, value: @management.content %><br>
+
+        <%= f.submit "編集する", class: "submit-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>

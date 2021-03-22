@@ -25,6 +25,7 @@
             <% @pets.each do |pet| %>
               <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
             <% end %>
+            
            <%= f.submit "投稿する", class: "submit-btn" %>
         </div>
       </div>

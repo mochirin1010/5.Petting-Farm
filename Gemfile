@@ -82,6 +82,8 @@ gem 'gretel'
 
 gem 'rails_admin', '~> 2.0.0.beta'
 
+gem 'simple_calendar'
+
 gem 'sitemap_generator'
 
 gem 'whenever', require: false
