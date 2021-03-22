@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>ペットの管理</h1>
+  <table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>時間</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @managements.each do |management| %>
+      <tr>
+        <td><%= management.title %></td>
+        <td><%= management.start_time %></td>
+        <td><%= link_to '見る', user_management_path(current_user.id, management.id) %></td>
+        <td><%= link_to '編集', edit_user_management_path(current_user.id, management.id) %></td>
+        <td><%= link_to '削除', user_management_path(current_user.id, management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+ <%= link_to '予定を追加する', new_user_management_path(current_user.id) %> 
+
+
+ <%= month_calendar events: @managements do |date, managements| %>
+  <%= date.day %>
+
+  <% managements.each do |management| %>
+    <div>
+      <%= link_to management.title, user_management_path(current_user.id, management.id) %>
+    </div>
+  <% end %> 
+
+<% end %> 
+
+</div>

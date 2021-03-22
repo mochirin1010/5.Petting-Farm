@@ -12,14 +12,19 @@
           
            <%= f.label "ペットの名前 " %><span>必須</span><br>
            <%= f.text_field :name %><br>
+
            <%= f.label "年齢" %><br>
            <%= f.text_field :age %><br>
+
            <%= f.label "種類" %><br>
            <%= f.text_field :pet_type %><br>
+
            <%= f.label "性別" %><br>
            <%= f.text_field :gender %><br>
+
            <%= f.label "ペットの紹介（150字まで）" %><br>
            <%= f.text_area :introduction %><br>
+
            <%= f.label "ペットの写真" %><br>
            <%= f.file_field :pet_img, id: :file_image %><br>
            <% if @pet.pet_img.present? %>
@@ -27,6 +32,7 @@
            <% else %>
              <%= image_tag "/img/dog.png", id: :img_prev %>
            <% end %><br>
+           
            <%= f.submit "登録する", class: "submit-btn" %>
         </div>
       </div>

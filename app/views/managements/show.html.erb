@@ -1,0 +1,24 @@
+<div class="container">
+  <p>
+    <strong>ペット</strong>
+    <%= @pet.name %>
+  </p>
+
+  <p>
+    <strong>タイトル</strong>
+    <%= @management.title %>
+  </p>
+
+  <p>
+    <strong>時間</strong>
+    <%= @management.start_time %>
+  </p>
+
+  <p>
+    <strong>内容</strong>
+    <%= @management.content %>
+  </p>
+
+  <%= link_to '編集', edit_user_management_path(current_user.id, @management) %> |
+  <%= link_to '戻る', user_managements_path %>
+</div>

@@ -25,6 +25,11 @@
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
+    <div class="pets-btn">
+      <%= link_to user_managements_path(current_user.id) do %>
+        <span class="material-icons pets-icon">pets</span><span>ペットの管理</span>
+      <% end %>
+    </div>
   <% end %>
 
   <ul class="tab">

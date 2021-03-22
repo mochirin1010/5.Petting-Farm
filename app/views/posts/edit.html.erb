@@ -12,10 +12,12 @@
           <%= image_tag @post.image_url %>
           <%= f.hidden_field :image_cache %><br>
           <%= f.text_area :content, value: @post.content, class: "introduction-text" %><br>
+
           <%= f.label "投稿するペット" %><br>
-            <% @pets.each do |pet| %>
-              <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
+          <% @pets.each do |pet| %>
+            <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
           <% end %>
+          
           <%= f.submit "保存", class: "submit-btn" %>
         </div>
       </div>
