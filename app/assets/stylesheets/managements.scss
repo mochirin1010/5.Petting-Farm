@@ -1,3 +1,80 @@
+// index====================
+.management-container h2 {
+  text-align: center;
+}
+
+.management-btn a {
+  display: block;
+  width: 150px;
+  padding: 10px;
+  margin: 15px 0;
+  text-align: center;
+  border: 1px solid #aa9e98;
+  background-color: #f0eae7;
+  border-radius: 10px;
+}
+
+// カレンダー
+
+.simple-calendar .today {
+  background: #fae3c5;
+}
+
+.simple-calendar .next-month,
+.simple-calendar .prev-month {
+  background: #f0eae7;
+}
+
+.month-calendar thead {
+  background-color: #cec7c3;
+}
+
+.simple-calendar .day a {
+  color: #f17a2a;
+}
+
+// 予定一覧
+
+.management-table {
+  font-size: 0.9em;
+  margin: 25px 0;
+}
+
+.management-table table th,
+.management-table table td {
+  text-align: center;
+  width: 350px;
+}
+
+.management-table table th {
+  padding: 15px 0;
+}
+
+.management-table table td {
+  padding: 10px 0;
+}
+
+.management-table table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.management-table table tr {
+  border-bottom: solid 1px #c9c1bd;
+}
+
+.management-table thead tr {
+  background-color: #cec7c3;
+}
+
+.management-table tbody tr:nth-child(2) {
+  background-color: #f0eae7;
+}
+
+// @media screen and (max-width: 600px) {
+  
+// }
+
 // Place all the styles related to the managements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/

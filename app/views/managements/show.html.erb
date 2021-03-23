@@ -1,4 +1,7 @@
 <div class="container">
+  <% breadcrumb :mymanagement_category %>
+  <%= render "layouts/breadcrumbs" %>
+
   <p>
     <strong>ペット</strong>
     <%= @pet.name %>
@@ -11,7 +14,7 @@
 
   <p>
     <strong>時間</strong>
-    <%= @management.start_time %>
+    <%= @management.start_time.strftime("%Y-%m-%d %H:%M") %>
   </p>
 
   <p>
@@ -19,6 +22,7 @@
     <%= @management.content %>
   </p>
 
-  <%= link_to '編集', edit_user_management_path(current_user.id, @management) %> |
+  <%= link_to '編集', edit_user_management_path(current_user.id, @management) %>
+  <%= link_to '削除', user_management_path(current_user.id, @management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
   <%= link_to '戻る', user_managements_path %>
 </div>
