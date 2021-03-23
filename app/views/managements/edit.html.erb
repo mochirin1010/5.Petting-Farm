@@ -9,22 +9,23 @@
           </div>
         <% end %>
 
-        <%= f.label "投稿するペット" %><br>
+        <%= f.label "ペット " %><span>必須</span><br>
         <% @pets.each do |pet| %>
           <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br>
         <% end %>
 
-        <%= f.label "title" %><br>
+        <%= f.label "タイトル（15字まで） " %><span>必須</span><br>
         <%= f.text_field :title, value: @management.title %><br>
 
-        <%= f.label "start_time" %><br>
+        <%= f.label "予定日時 " %><span>必須</span><br>
         <%= f.datetime_select :start_time %><br>
 
-        <%= f.label "content" %><br>
+        <%= f.label "内容(メモなど)（150字まで）" %><br>
         <%= f.text_area :content, value: @management.content %><br>
 
         <%= f.submit "編集する", class: "submit-btn" %>
       </div>
     </div>
   <% end %>
+  <%= link_to '戻る', user_managements_path %>
 </div>

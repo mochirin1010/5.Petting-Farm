@@ -1,18 +1,18 @@
 class ManagementsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :ensure_correct_user
+  before_action :ensure_correct_user
 
   def index
-    @managements = Management.all
+    @managements = Management.where(user_id: current_user.id)
   end
 
   def show
-    @management = Management.find(params[:id])
+    @management = Management.find_by(params[:id])
     @pet = @management.pet
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.find_by(params[:user_id])
     @management = Management.new
     @pets = Pet.where(user_id: current_user.id)
   end
@@ -24,13 +24,13 @@ class ManagementsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
-    @management = Management.find(params[:id])
+    @user = User.find_by(params[:user_id])
+    @management = Management.find_by(params[:id])
     @pets = Pet.where(user_id: current_user.id)
   end
 
   def update
-    @management = Management.find(params[:id])
+    @management = Management.find_by(params[:id])
     if @management.update(management_parameter)
       redirect_to user_managements_path
     else
@@ -40,17 +40,17 @@ class ManagementsController < ApplicationController
   end
 
   def destroy
-    @management = Management.find(params[:id])
+    @management = Management.find_by(params[:id])
     @management.destroy
     redirect_to user_managements_path
   end
 
-  # def ensure_correct_user
-  #   @management = Management.find_by(id: params[:id])
-  #   return unless @management.user_id != current_user.id
+  def ensure_correct_user
+    @user = User.find_by(id: params[:user_id])
+    return unless @user.id != current_user.id
 
-  #   redirect_to root_path
-  # end
+    redirect_to root_path
+  end
 
   private
 

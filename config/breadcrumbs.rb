@@ -45,6 +45,11 @@ crumb :mypet_parent_category do |pet|
   parent :myuser_show
 end
 
+crumb :mymanagement_category do
+  link "ペット管理", user_managements_path(current_user.id)
+  parent :myuser_show
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

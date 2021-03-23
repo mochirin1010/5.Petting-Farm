@@ -1,41 +1,53 @@
-<div class="container">
-  <h1>ペットの管理</h1>
-  <table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>時間</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container management-container">
+  <% breadcrumb :mymanagement_category %>
+  <%= render "layouts/breadcrumbs" %>
 
-  <tbody>
-    <% @managements.each do |management| %>
-      <tr>
-        <td><%= management.title %></td>
-        <td><%= management.start_time %></td>
-        <td><%= link_to '見る', user_management_path(current_user.id, management.id) %></td>
-        <td><%= link_to '編集', edit_user_management_path(current_user.id, management.id) %></td>
-        <td><%= link_to '削除', user_management_path(current_user.id, management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
-      </tr>
+  <h1>ペット管理</h1>
+  <div class="management-btn">
+    <%= link_to '予定を追加する', new_user_management_path(current_user.id) %>
+  </div>
+
+  <div class="month-calendar">
+    <h2>カレンダー</h2>
+    <%= month_calendar events: @managements do |date, managements| %>
+      <%= date.day %>
+      <% managements.each do |management| %>
+        <% @pet = Pet.find_by(id: management.pet_id) %>
+        <div>
+          <%= link_to user_management_path(current_user.id, management.id) do %>
+            <%= @pet.name %>
+            <%= management.title %>
+          <% end %>
+        </div>
+      <% end %> 
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+  <br>
 
- <%= link_to '予定を追加する', new_user_management_path(current_user.id) %> 
-
-
- <%= month_calendar events: @managements do |date, managements| %>
-  <%= date.day %>
-
-  <% managements.each do |management| %>
-    <div>
-      <%= link_to management.title, user_management_path(current_user.id, management.id) %>
-    </div>
-  <% end %> 
-
-<% end %> 
+  <div class="management-table">
+    <h2>予定一覧</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ペット</th>
+          <th>タイトル</th>
+          <th>予定日時</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @managements.each do |management| %>
+          <% @pet = Pet.find_by(id: management.pet_id) %>
+          <tr>
+            <td><%= @pet.name %></td>
+            <td><%= link_to management.title, user_management_path(current_user.id, management.id) %></td>
+            <td><%= link_to management.start_time.strftime("%Y-%m-%d %H:%M"), user_management_path(current_user.id, management.id) %></td>
+            <td><%= link_to '編集', edit_user_management_path(current_user.id, management.id) %><%= link_to '削除', user_management_path(current_user.id, management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 </div>

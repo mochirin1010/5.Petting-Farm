@@ -4,6 +4,7 @@ class Management < ApplicationRecord
   validates :pet_id, { presence: true }
   validates :user_id, { presence: true }
   belongs_to :user
+  belongs_to :pet
 
   def pet
     return Pet.find_by(id: self.pet_id)
