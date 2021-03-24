@@ -66,3 +66,4 @@ AllCops:
     - spec/**/*
     - config/**/*
     - node_modules/**/*
+    - helpers/**/*

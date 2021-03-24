@@ -1,20 +1,41 @@
 // index====================
 .management-container h2 {
   text-align: center;
+  margin-top: 30px;
 }
 
 .management-btn a {
   display: block;
   width: 150px;
-  padding: 10px;
-  margin: 15px 0;
+  padding: 8px;
+  margin-right: 30px;
+  margin-left: auto;
   text-align: center;
   border: 1px solid #aa9e98;
   background-color: #f0eae7;
   border-radius: 10px;
 }
 
+.add-icon {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 8px;
+}
+
 // カレンダー
+.calendar-heading {
+  width: 250px;
+  margin: 8px auto;
+  text-align: center;
+}
+
+.calendar-title {
+  padding: 0 20px;
+}
+
+.calendar-heading span {
+  font-size: 1.5em;
+}
 
 .simple-calendar .today {
   background: #fae3c5;
@@ -25,12 +46,35 @@
   background: #f0eae7;
 }
 
-.month-calendar thead {
+.simple-calendar thead {
   background-color: #cec7c3;
+}
+
+.simple-calendar th {
+  text-align: center;
 }
 
 .simple-calendar .day a {
   color: #f17a2a;
+  font-size: 0.8em;
+}
+
+.simple-calendar tbody tr {
+  height: 150px;
+  text-align: center;
+}
+
+.calendar-day-box {
+  height: 110px;
+  // overflow: hidden;
+   overflow: scroll;
+}
+
+.calendar-title-box {
+  line-height: 0.8em;
+  letter-spacing: -0.8px;
+  margin-top: 8px;
+  overflow: hidden;
 }
 
 // 予定一覧
@@ -40,23 +84,47 @@
   margin: 25px 0;
 }
 
+.management-table table th:nth-child(1),
+.management-table table td:nth-child(1) {
+  width: 200px;
+  text-align: center;
+}
+
+.management-table table th:nth-child(2) {
+  text-align: left;
+}
+
+.management-table table th:nth-child(3),
+.management-table table td:nth-child(3) {
+  width: 150px;
+  text-align: center;
+}
+
+.management-table table th:nth-child(4),
+.management-table table td:nth-child(4) {
+  width: 55px;
+  text-align: center;
+}
+
+.management-table table th:nth-child(4) a,
+.management-table table td:nth-child(4) a {
+  display: block;
+  border: 1px solid #aa9e98;
+  background-color: #f0eae7;
+  border-radius: 10px;
+  width: 50px;
+  margin: 3px auto;
+}
+
 .management-table table th,
 .management-table table td {
-  text-align: center;
-  width: 350px;
-}
-
-.management-table table th {
-  padding: 15px 0;
-}
-
-.management-table table td {
-  padding: 10px 0;
+  padding: 8px 5px;
 }
 
 .management-table table {
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 
 .management-table table tr {
@@ -67,13 +135,103 @@
   background-color: #cec7c3;
 }
 
-.management-table tbody tr:nth-child(2) {
+.management-table tbody tr:nth-child(2n) {
   background-color: #f0eae7;
 }
 
-// @media screen and (max-width: 600px) {
-  
-// }
+@media screen and (max-width: 1100px) {
+  .simple-calendar .day a {
+    font-size: 0.7em;
+    letter-spacing: -0.7px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .simple-calendar tbody tr {
+    height: 130px;
+  }
+  .calendar-day-box {
+    height: 100px;
+  }
+  .simple-calendar tbody td {
+    padding: 3px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .simple-calendar {
+    font-size: 0.8em;
+  }
+  .simple-calendar tbody tr {
+    height: 100px;
+  }
+  .calendar-day-box {
+    height: 80px;
+  }
+  .simple-calendar .day a {
+    font-size: 0.2em;
+  }
+  .calendar-title {
+    margin-top: 10px;
+  }
+
+  .management-table table {
+    font-size: 0.8em;
+  }
+  .management-table table th,
+  .management-table table td {
+    padding: 5px;
+  }
+  .management-table table th:nth-child(1),
+  .management-table table td:nth-child(1) {
+    width: 130px;
+  }
+  .management-table table th:nth-child(3),
+  .management-table table td:nth-child(3) {
+    width: 90px;
+  }
+  .management-table table th:nth-child(4),
+  .management-table table td:nth-child(4) {
+    display: none;
+  }
+
+  .management-btn a {
+    margin-right: 5px;
+  }
+}
+
+// show=============
+.management-show-container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.management-show-container strong {
+  display: inline-block;
+  width: 80px;
+}
+
+.management-show-container p {
+  padding: 15px 3px;
+  border-bottom: 1px solid #c9c1bd;
+}
+
+.management-show-btn a {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #aa9e98;
+  background-color: #f0eae7;
+  border-radius: 10px;
+  width: 60px;
+  margin: 20px 5px;
+  padding: 3px;
+}
+
+@media screen and (max-width: 650px) {
+  .management-show-container {
+    width: 300px;
+  }
+}
 
 // Place all the styles related to the managements controller here.
 // They will automatically be included in application.css.
