@@ -4,22 +4,28 @@
 
   <h1>ペット管理</h1>
   <div class="management-btn">
-    <%= link_to '予定を追加する', new_user_management_path(current_user.id) %>
+    <%= link_to new_user_management_path(current_user.id) do %>
+      <span class="material-icons add-icon">add</span><span>予定の追加</span>
+    <% end %>
   </div>
 
   <div class="month-calendar">
     <h2>カレンダー</h2>
-    <%= month_calendar events: @managements do |date, managements| %>
+    <%= month_calendar events: @managements, end_attribute: :start_time do |date, managements| %>
       <%= date.day %>
-      <% managements.each do |management| %>
-        <% @pet = Pet.find_by(id: management.pet_id) %>
-        <div>
-          <%= link_to user_management_path(current_user.id, management.id) do %>
-            <%= @pet.name %>
-            <%= management.title %>
-          <% end %>
-        </div>
-      <% end %> 
+      <div class="calendar-day-box">
+        <% managements.each do |management| %>
+          <% @pet = Pet.find_by(id: management.pet_id) %>
+          <div class="calendar-title-box">
+            <%= link_to user_management_path(current_user.id, management.id) do %>
+              <%= @pet.name %>
+              <div>
+                <%= management.title %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
@@ -42,8 +48,16 @@
           <tr>
             <td><%= @pet.name %></td>
             <td><%= link_to management.title, user_management_path(current_user.id, management.id) %></td>
-            <td><%= link_to management.start_time.strftime("%Y-%m-%d %H:%M"), user_management_path(current_user.id, management.id) %></td>
-            <td><%= link_to '編集', edit_user_management_path(current_user.id, management.id) %><%= link_to '削除', user_management_path(current_user.id, management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
+            <td>
+              <%= link_to user_management_path(current_user.id, management.id) do %>
+                <%= management.start_time.strftime("%Y年%m月%d日 %H:%M~") %>
+                <%= management.end_time.strftime("%H:%M") %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to '編集', edit_user_management_path(current_user.id, management.id) %>
+              <%= link_to '削除', user_management_path(current_user.id, management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
+            </td>
           </tr>
         <% end %>
       </tbody>

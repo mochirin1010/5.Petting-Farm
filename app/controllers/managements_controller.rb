@@ -7,12 +7,12 @@ class ManagementsController < ApplicationController
   end
 
   def show
-    @management = Management.find_by(params[:id])
+    @management = Management.find(params[:id])
     @pet = @management.pet
   end
 
   def new
-    @user = User.find_by(params[:user_id])
+    @user = User.find(params[:user_id])
     @management = Management.new
     @pets = Pet.where(user_id: current_user.id)
   end
@@ -24,13 +24,13 @@ class ManagementsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(params[:user_id])
-    @management = Management.find_by(params[:id])
+    @user = User.find(params[:user_id])
+    @management = Management.find(params[:id])
     @pets = Pet.where(user_id: current_user.id)
   end
 
   def update
-    @management = Management.find_by(params[:id])
+    @management = Management.find(params[:id])
     if @management.update(management_parameter)
       redirect_to user_managements_path
     else
@@ -40,7 +40,7 @@ class ManagementsController < ApplicationController
   end
 
   def destroy
-    @management = Management.find_by(params[:id])
+    @management = Management.find(params[:id])
     @management.destroy
     redirect_to user_managements_path
   end
@@ -55,6 +55,6 @@ class ManagementsController < ApplicationController
   private
 
   def management_parameter
-    params.require(:management).permit(:title, :content, :start_time, :pet_id).merge(user_id: current_user.id)
+    params.require(:management).permit(:title, :content, :start_time, :end_time, :pet_id).merge(user_id: current_user.id)
   end
 end

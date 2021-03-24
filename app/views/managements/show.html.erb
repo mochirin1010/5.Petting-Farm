@@ -2,27 +2,32 @@
   <% breadcrumb :mymanagement_category %>
   <%= render "layouts/breadcrumbs" %>
 
-  <p>
-    <strong>ペット</strong>
-    <%= @pet.name %>
-  </p>
+  <div class="management-show-container">
+    <p>
+      <strong>ペット</strong>
+      <%= @pet.name %>
+    </p>
 
-  <p>
-    <strong>タイトル</strong>
-    <%= @management.title %>
-  </p>
+    <p>
+      <strong>タイトル</strong>
+      <%= @management.title %>
+    </p>
 
-  <p>
-    <strong>時間</strong>
-    <%= @management.start_time.strftime("%Y-%m-%d %H:%M") %>
-  </p>
+    <p>
+      <strong>時間</strong>
+      <%= @management.start_time.strftime("%Y年%m月%d日 %H:%M~") %>
+      <%= @management.end_time.strftime("%H:%M") %>
+    </p>
 
-  <p>
-    <strong>内容</strong>
-    <%= @management.content %>
-  </p>
+    <p>
+      <strong>内容</strong>
+      <%= @management.content %>
+    </p>
 
-  <%= link_to '編集', edit_user_management_path(current_user.id, @management) %>
-  <%= link_to '削除', user_management_path(current_user.id, @management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
-  <%= link_to '戻る', user_managements_path %>
+    <div class="management-show-btn">
+      <%= link_to '編集', edit_user_management_path(current_user.id, @management) %>
+      <%= link_to '削除', user_management_path(current_user.id, @management.id), method: :delete, data: { confirm: '削除してもよろしいですか?' } %>
+      <%= link_to '戻る', user_managements_path %>
+    </div>
+  </div>
 </div>
