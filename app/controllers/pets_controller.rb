@@ -20,15 +20,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(
-      name: params[:name],
-      age: params[:age],
-      pet_type: params[:pet_type],
-      gender: params[:gender],
-      introduction: params[:introduction],
-      pet_img: params[:pet_img],
-      user_id: current_user.id
-    )
+    @pet = Pet.create(pet_parameter)
     if @pet.save
       redirect_to user_path(current_user)
     else
@@ -71,7 +63,7 @@ class PetsController < ApplicationController
 
   private
 
-  def pet_params
-    params.permit(:name, :age, :pet_type, :gender, :introduction, :pet_img)
+  def pet_parameter
+    params.require(:pet).permit(:name, :age, :pet_type, :gender, :introduction, :pet_img).merge(user_id: current_user.id)
   end
 end

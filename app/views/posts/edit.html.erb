@@ -1,6 +1,6 @@
 <div class="container edit-container">
   <h1>投稿を編集する</h1>
-    <%= form_with url: post_path(@post), :method => :patch do |f| %>
+    <%= form_with model: @post, :method => :patch do |f| %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>

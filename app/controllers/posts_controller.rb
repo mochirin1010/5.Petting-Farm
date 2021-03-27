@@ -22,16 +22,11 @@ class PostsController < ApplicationController
 
   def create
     @pets = Pet.where(user_id: current_user.id)
-    @post = Post.new(
-      content: params[:content],
-      image: params[:image],
-      pet_id: params[:pet_id],
-      user_id: current_user.id
-    )
+    @post = Post.create(post_parameter)
     if @post.save
       redirect_to posts_path
     else
-      render new_post_path
+      render ("posts/new")
     end
   end
 
@@ -43,9 +38,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.content = params[:content]
-    @post.pet_id = params[:pet_id]
-    if @post.save
+    if @post.update(post_parameter)
       redirect_to posts_path
     else
       render("posts/edit")
@@ -68,7 +61,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.permit(:content, :image, :pet_id)
+  def post_parameter
+    params.require(:post).permit(:content, :image, :pet_id).merge(user_id: current_user.id)
   end
 end

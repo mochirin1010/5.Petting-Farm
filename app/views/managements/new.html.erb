@@ -11,8 +11,8 @@
 
           <%= f.label "ペット " %><span>必須</span><br>
           <% @pets.each do |pet| %>
-            <%= f.radio_button :pet_id, pet.id %><%= pet.name %><br><br>
-          <% end %>
+            <%= f.radio_button :pet_id, pet.id %><%= pet.name %>
+          <% end %><br><br>
 
           <%= f.label "タイトル（10字まで） " %><span>必須</span><br>
           <%= f.text_field :title %><br><br>

@@ -18,9 +18,13 @@ class ManagementsController < ApplicationController
   end
 
   def create
-    Management.create(management_parameter)
-    redirect_to user_managements_path
     @pets = Pet.where(user_id: current_user.id)
+    @management = Management.create(management_parameter)
+    if @management.save
+      redirect_to user_managements_path
+    else
+      render("managements/new")
+    end
   end
 
   def edit
@@ -34,7 +38,7 @@ class ManagementsController < ApplicationController
     if @management.update(management_parameter)
       redirect_to user_managements_path
     else
-      render "edit"
+      render("managements/edit")
     end
     @pets = Pet.where(user_id: current_user.id)
   end
