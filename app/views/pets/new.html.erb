@@ -1,7 +1,7 @@
 <div class="container">
   <div class="post-new">
     <h1>ペットを登録する</h1>
-    <%= form_with url: pets_path, method: :post do |f| %>
+    <%= form_with model: @pet, method: :post do |f| %>
       <div class="form">
         <div class="form-body field-img">
           <% @pet.errors.full_messages.each do |message| %>

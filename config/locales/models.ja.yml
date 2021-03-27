@@ -4,6 +4,7 @@ ja:
       post: 
         content: 文章
         image: 画像
+        pet: ペット
       user:
         username: ユーザーネーム
         user_img: ユーザー画像
@@ -15,3 +16,6 @@ ja:
         gender: 性別
         introduction: ペット紹介
         pet_img: ペット画像
+      management:
+        title: タイトル
+        pet: ペット
