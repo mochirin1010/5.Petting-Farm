@@ -37,6 +37,9 @@ Style/SymbolArray:
 Layout/CommentIndentation:
   Enabled: false
 
+Layout/LineLength:
+  Max: 140
+
 Metrics/BlockLength:
   Max: 60
   Exclude:
