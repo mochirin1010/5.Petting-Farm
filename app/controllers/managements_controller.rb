@@ -59,6 +59,7 @@ class ManagementsController < ApplicationController
   private
 
   def management_parameter
-    params.require(:management).permit(:title, :content, :start_time, :end_time, :pet_id).merge(user_id: current_user.id)
+    params.require(:management).permit(:title, :content, :start_time, :end_time,
+                                       :pet_id).merge(user_id: current_user.id)
   end
 end

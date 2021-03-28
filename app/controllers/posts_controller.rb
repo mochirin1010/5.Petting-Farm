@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      render ("posts/new")
+      render("posts/new")
     end
   end
 

@@ -30,7 +30,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'brakeman'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 group :development do
@@ -62,41 +68,34 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 #	Japanese localization
+gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0'
 
-gem 'devise-i18n'
-
-gem 'dotenv-rails'
-
+# Image Upload
 gem 'carrierwave', '~> 2.0'
-
 gem 'mini_magick'
 
+# SEO
+gem 'meta-tags'
+gem 'sitemap_generator'
+
+# Search
+gem 'ransack'
+
+# Pagination
 gem 'kaminari'
 
-gem 'ransack'
+# Admin
+gem 'rails_admin', '~> 2.0.0.beta'
 
 gem 'ancestry'
 
 gem 'gretel'
 
-gem 'rails_admin', '~> 2.0.0.beta'
+gem 'dotenv-rails'
 
 gem 'simple_calendar'
 
-gem 'sitemap_generator'
+gem "jquery-rails"
 
 gem 'whenever', require: false
-
-gem 'meta-tags'
-
-group 'development' do
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec'
-
-  gem 'brakeman'
-end
-
-gem "jquery-rails"
