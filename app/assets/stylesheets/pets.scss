@@ -76,8 +76,11 @@
   margin: 10px 0;
 }
 
+.profile {
+  padding: 25px 0;
+}
+
 .pet-show dl {
-  padding: 15px 0;
   margin: 0;
   border-bottom: 1px solid #ccc;
 }
@@ -89,7 +92,7 @@
 .pet-show dt {
   width: 100px;
   height: auto;
-  margin-bottom: 5px;
+  line-height: 20px;
 }
 
 @media screen and (min-width: 750px) {
