@@ -1,24 +1,26 @@
-# README
+# Petting Farm
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービス概要
+ペットの写真を自由に投稿するサイトです。
+Petting Farm = "動物園のふれあいコーナー" という意味です。写真をたくさん投稿することによって、動物とのふれあいをより身近に感じられるようなサイトをみんなで作っていきましょう！
 
-Things you may want to cover:
+## 作る上で意識した事
 
-* Ruby version
+## URL
+取得次第添付します。
 
-* System dependencies
+## 開発環境
+Ruby 2.6.6
+Rails 6.1.1
 
-* Configuration
+## ER図
 
-* Database creation
+## 各種機能＆導入技術
 
-* Database initialization
+## トップページ
 
-* How to run the test suite
+## ログインページ
 
-* Services (job queues, cache servers, search engines, etc.)
+## マイページ
 
-* Deployment instructions
-
-* ...
+## 管理者ページ
