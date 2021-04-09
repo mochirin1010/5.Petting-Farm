@@ -17,6 +17,7 @@ https://pettingfarm.herokuapp.com/
 - Rails 6.1.3
 
 ## ER図
+![top](./public/img/Petting_Farm_ER.png)
 
 ## 各種機能＆導入技術
 - プラットフォーム (Heroku)
@@ -41,5 +42,3 @@ https://pettingfarm.herokuapp.com/
 
 ## ペット管理ページ
 ![top](./public/img/Petting_Farm_pet.png)
-
-## 管理者ページ
