@@ -1,7 +1,6 @@
 # Petting Farm
 
 ## サービス概要
-![top](./public/img/Petting_Farm_top.png)
 ペットの写真を自由に投稿するサイトです。
 Petting Farm = "動物園のふれあいコーナー" という意味です。写真をたくさん投稿することによって、動物とのふれあいをより身近に感じられるようなサイトをみんなで作っていきましょう！
 
@@ -35,9 +34,12 @@ https://pettingfarm.herokuapp.com/
 - SEO対策 (meta-tags、sitemap_generator)
 
 ## トップページ
-
-## ログインページ
+![top](./public/img/Petting_Farm_top.png)
 
 ## マイページ
+![top](./public/img/Petting_Farm_my.png)
+
+## ペット管理ページ
+![top](./public/img/Petting_Farm_pet.png)
 
 ## 管理者ページ
