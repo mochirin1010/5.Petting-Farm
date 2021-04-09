@@ -27,8 +27,8 @@
   <%= render "devise/shared/links" %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= f.hidden_field :email, value: "testuser@example.com" %>
-    <%= f.hidden_field :password, value: "123456" %>
+    <%= f.hidden_field :email, value: ENV['TEST_USERNAME'] %>
+    <%= f.hidden_field :password, value: ENV['TEST_PASSWORD'] %>
     <%= f.submit 'テストログイン', class: "submit-btn" %>
   <% end %>
 
