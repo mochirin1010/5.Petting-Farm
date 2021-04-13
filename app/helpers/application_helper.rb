@@ -10,7 +10,7 @@ module ApplicationHelper
       canonical: request.original_url,
       noindex: !Rails.env.production?,
       icon: [
-        { href: image_url('/img/pet_icon.png') },
+        { href: image_url('/img/favicon_pet.ico') },
         { href: image_url('/img/pet_icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' }
       ],
       og: {
